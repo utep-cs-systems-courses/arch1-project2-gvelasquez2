@@ -8,5 +8,4 @@
 
 void led_init();
 void blinkLEDS();
-void dimLEDS();
 #endif 

@@ -49,7 +49,7 @@ void switch_interrupt_handler(){
     case 01:
       switch_state_changed = 1;
       blinkLEDS();
-      // play song 1 //
+      playPokemonTheme();
 
     break;
   
