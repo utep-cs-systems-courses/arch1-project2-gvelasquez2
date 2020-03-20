@@ -56,21 +56,20 @@ void switch_interrupt_handler(){
     case 02:
       switch_state_changed = 1;
       blinkLEDS();
-      // play song 2 //
+      playMarioTheme();
 
     break;
 
     case 03:
       switch_state_changed = 1;
       blinkLEDS();
-      //play song 3 //
+      playRememberMe();
 
     break;
 
     case 04:
       switch_state_changed = 1;
       blinkLEDS();
-      //play song 4 //
 
     break;
 
