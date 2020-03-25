@@ -19,8 +19,8 @@ clean:
 	rm -f *.o *.elf
 
 main.c: buzzer.h led.h switches.h
-switches.c: switches.c
+switches.c: switches.h
 led.c: led.h
 buzzer.c: buzzer.h
 p1_interrupt_handler.c: switches.h
-wdInterruptHandler.c: buzzer.h led.h
+
