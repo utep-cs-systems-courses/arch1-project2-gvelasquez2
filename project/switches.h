@@ -11,5 +11,8 @@
 void switch_init();
 void switch_interrupt_handler();
 
-extern char switch_state_changed;
+extern char play_both;
+extern char play_green;
+extern char play_red;
+
 #endif

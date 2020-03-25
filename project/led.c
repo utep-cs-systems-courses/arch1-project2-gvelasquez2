@@ -5,11 +5,19 @@
 void led_init(){
   P1DIR |= LEDS;
   P1OUT = !LED_RED;
-  P1OUT = !LED_GREEN;
-  if(switch_state_changed){ // if we press a button flash the lights 
+  if(play_both){ // if we press a button flash the lights 
     LightShow();
   }
-  switch_state_changed = 0; // back to off 
+  else if(play_red){
+    redLightShow();
+  }
+  else if(play_green){
+    greenLightShow();
+  }
+  
+  play_both = 0; // back to off
+  play_red = 0;
+  play_green = 0;
 }
 
 void LightShow(){ // flash green and red with different delays  

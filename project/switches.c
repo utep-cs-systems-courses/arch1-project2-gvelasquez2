@@ -3,7 +3,9 @@
 #include "led.h"
 #include "buzzer.h"
 
-char switch_state_changed;
+char play_both;
+char play_red;
+char play_green;
 
 int state = 0;
 
@@ -25,7 +27,9 @@ void switch_init(){
 
 
 void switch_interrupt_handler(){
-  switch_state_changed = 0;
+  play_both = 0;
+  play_red = 0;
+  play_green = 0;
   char p2val = switch_update_interrupt_sense();
 
   // If Statements to Cycle through states //
@@ -48,24 +52,26 @@ void switch_interrupt_handler(){
 
   case 01: // play pokemon 
       playPokemonTheme();
-      switch_state_changed = 1;
+      play_both= 1;
       
     break;
   
   case 02: // play mario 
       playMarioTheme();
-      switch_state_changed = 1;
+      play_both = 0;
+      play_red = 1;
 
     break;
 
   case 03: // play remember me 
       playRememberMe();
-      switch_state_changed = 1;
+      play_both = 0;
+      play_green = 1;
 
     break;
 
   case 04: // just lights 
-      switch_state_changed = 1;
+      play_both = 1;
 
     break;
 
