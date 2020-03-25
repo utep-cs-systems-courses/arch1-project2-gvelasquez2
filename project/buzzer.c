@@ -39,10 +39,12 @@ void buzzer_set_period(short cycles){
 }
 
 void playPokemonTheme(){
-  timerAUpmode();
+  timerAUpmode();    /* used to drive Speaker */
   P2SEL2 &= ~(BIT6 | BIT7);
   P2DIR = BIT6;
   P2SEL |= BIT6;
+
+  // Array of Notes for song //
   int song[] = {A3,0,A3,A3,0,A3,0,A3,0,G3,E3,0,C3,0,C3,0,A3,A3,0,G3,F3,0,G3,0,F3,As3,0,As3,0,As3,0,
 		A3,0,G3,0,F3,0,F3,0,A3,0,A3,0,G3,0,F3,0,A3,0,A3,0,A3,A3,0,A3,G3,0,E3,0,C3,0,A3,A3,
 		0,0,G3,0,F3,0,G3,0,As3,0,As3,As3,As3,0,As3,0,A3,G3,F3,0,F3,0,A3,A3,0,G3,0,F3,A3,0,
@@ -50,18 +52,18 @@ void playPokemonTheme(){
 	       D4,C4,0,A3,C4,D4,0,D4,0,D4,0,C4,0,A3,0,F3,0,F3,0,G3,0,A3,0,A3,0,G3,0,F3,A3,0,A3,C4};
   
   int keys = 0;
-  for(int i = 0; i <100; i++){
+  for(int i = 0; i <100; i++){ // iterate through song 
     keys = song[i];
     buzzer_set_period(keys);
     __delay_cycles(2500000);
-    P2SEL &= ~BIT7;
+    P2SEL &= ~BIT7; // off 
   }
-  P2DIR &= ~BIT6;
+  P2DIR &= ~BIT6; // stop 
 }
 
 
 void playMarioTheme(){
-  timerAUpmode();
+  timerAUpmode(); // used to drive speaker 
   P2SEL2 &= ~(BIT6 | BIT7);
   P2DIR = BIT6;
   P2SEL |= BIT6;
@@ -74,9 +76,9 @@ void playMarioTheme(){
     keys = song[i];
     buzzer_set_period(keys);
     __delay_cycles(2500000);
-    P2SEL &= ~BIT7;
+    P2SEL &= ~BIT7; // off 
   }
-  P2DIR &= ~BIT6;
+  P2DIR &= ~BIT6; // stop 
 }
 
 
@@ -93,7 +95,7 @@ void playRememberMe(){
     keys = song[i];
     buzzer_set_period(keys);
     __delay_cycles(2500000);
-    P2SEL &= ~BIT7;
+    P2SEL &= ~BIT7; // off 
   }
-  P2DIR &= ~BIT6;
+  P2DIR &= ~BIT6; // stop 
 }

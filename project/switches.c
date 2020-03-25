@@ -46,30 +46,26 @@ void switch_interrupt_handler(){
 
   switch(state){
 
-    case 01:
-      switch_state_changed = 1;
-      blinkLEDS();
+  case 01: // play pokemon 
       playPokemonTheme();
-
+      switch_state_changed = 1;
+      
     break;
   
-    case 02:
-      switch_state_changed = 1;
-      blinkLEDS();
+  case 02: // play mario 
       playMarioTheme();
+      switch_state_changed = 1;
 
     break;
 
-    case 03:
-      switch_state_changed = 1;
-      blinkLEDS();
+  case 03: // play remember me 
       playRememberMe();
+      switch_state_changed = 1;
 
     break;
 
-    case 04:
+  case 04: // just lights 
       switch_state_changed = 1;
-      blinkLEDS();
 
     break;
 
