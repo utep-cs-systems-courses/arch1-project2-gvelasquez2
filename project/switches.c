@@ -2,7 +2,7 @@
 #include "switches.h"
 #include "led.h"
 #include "buzzer.h"
-
+#include "assemblyCode.h"
 char play_both;
 char play_red;
 char play_green;
@@ -35,42 +35,53 @@ void switch_interrupt_handler(){
   // If Statements to Cycle through states //
 
   if(p2val & SW1 ? 0 : 1){
-    state = 01;
+    switch_state_call(1);
+    play_both = 1;
   }
   if(p2val & SW2 ? 0 : 1){
-    state = 02;
+    switch_state_call(2);
+    play_both = 0;
+    play_red = 1;
   }
   if(p2val & SW3 ? 0 : 1){
-    state = 03;
+    switch_state_call(3);
+    play_both = 0;
+    play_red = 0;
+    play_green = 1;
   }
   if(p2val & SW4 ? 0 : 1){
-    state = 04;
+    switch_state_call(4);
+    play_both = 0;
+    play_red = 0;
+    play_green =1;
   }
-
+}
+/*
+void switch_state_call(int state){
 
   switch(state){
 
-  case 01: // play pokemon 
+  case 1: // play pokemon 
       playPokemonTheme();
       play_both= 1;
       
     break;
   
-  case 02: // play mario 
+  case 2: // play mario 
       playMarioTheme();
       play_both = 0;
       play_red = 1;
 
     break;
 
-  case 03: // play remember me 
+  case 3: // play remember me 
       playRememberMe();
       play_both = 0;
       play_green = 1;
 
     break;
 
-  case 04: // just lights 
+  case 4: // just lights 
       play_both = 1;
 
     break;
@@ -79,6 +90,6 @@ void switch_interrupt_handler(){
     break;
   }
 }
-
+*/
 
     

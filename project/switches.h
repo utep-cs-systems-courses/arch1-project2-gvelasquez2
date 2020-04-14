@@ -10,6 +10,7 @@
 
 void switch_init();
 void switch_interrupt_handler();
+void switch_state_call(int state);
 
 extern char play_both;
 extern char play_green;

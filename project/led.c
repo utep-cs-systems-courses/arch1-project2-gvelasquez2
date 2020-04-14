@@ -15,9 +15,11 @@ void led_init(){
     greenLightShow();
   }
   
+  
   play_both = 0; // back to off
   play_red = 0;
   play_green = 0;
+  
 }
 
 void LightShow(){ // flash green and red with different delays  
